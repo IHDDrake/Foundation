@@ -1,8 +1,7 @@
-{% extends 'components/base.html' %}
+{% extends "components/base.html" %}
 
 {% block content %}
-    <!-- <h1>You're logged in!</h1> -->
-    <style>
+<style>
 
     body {
         background: black;
@@ -65,11 +64,11 @@
 
     .panel{
         width: 700px;
-        height: 350px;
+        height: 600px;
         background: rgb(33, 37, 41);
         border-radius: 10px;
         position: absolute;
-        top: 32%;
+        top: 20%;
         left: 32%;
         box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
         border: 1px solid rgba(85, 85, 85, 0.979);
@@ -99,55 +98,10 @@
     <div class="fbox">
             <div class="panel" >
                 <div class="fcol">
-                    <h1>Welcome to Foundation</h1>
-                    <p>This is a playground website for Ian Drake.</p>
+                    <h1>Spider Cam</h1>
+                    <img src="{% url 'spider_cam:video_feed' %}" width="640" height="480" style="transform: rotateY(180deg) rotateX(180deg);">
+
                 </div>
             </div>
     </div>
-    <!--
-    <style>
-     body {
-        background: black;
-        overflow: hidden;
-        position: relative;
-        min-height: 100vh;
-        margin: 0;
-    }
-
-    .glow {
-        position: fixed;
-        bottom: -80px;
-        width: 300px;
-        height: 300px;
-        border-radius: 50%;
-        filter: blur(100px);
-        opacity: 0.5;
-        background: rgb(85, 6, 6);
-        z-index: -1;
-    }
-
-    .glow-left {
-        left: -150px;
-        animation: pulse 4s infinite alternate;
-    }
-
-    .glow-right {
-        right: -150px;
-        animation: pulse 4s infinite alternate;
-    }
-
-    @keyframes pulse {
-        0% {
-            opacity: 0.2;
-            transform: scale(0.6);
-        }
-        100% {
-            opacity: 0.6; 
-            transform: scale(1.4);
-        }
-    }
-</style>
-
-<div class="glow glow-left"></div>
-<div class="glow glow-right"></div> -->
 {% endblock %}

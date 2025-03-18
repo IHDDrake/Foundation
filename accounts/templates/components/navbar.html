@@ -1,24 +1,98 @@
-
+{% load static %}
 <style>
     .navbar-brand {
         padding: 0px;
     }
     .navbar-brand img {
-        width: 30px;
-        height: 24px;
+        width: 40px;
+        height: 40px;
+    }
+    .navbar{
+        background-color: rgb(44, 44, 44);
+        border-bottom: 1px solid rgba(80, 3, 3, 0.979);
+        min-height:50px;
+    }
+    @media screen and (max-width: 768px), (max-device-width: 768px) {
+        .navbar{
+            min-height: 150px;
+        }
+        .navbar-brand img{
+            width: 100px;
+            height: 100px;
+        }
+        .navbar-nav a{
+            font-size: 30px;
+        }
+        .navbar-toggler{
+            width: 100px;
+            height: 100px;
+        }
+        .navbar-toggler-icon{
+            width: 70px;
+            height: 70px;
+        }
+    }
+    .navbar-nav a{
+        color: #b10f0f;
+    }
+    .navbar-nav a:hover{
+        color: #eb1313;
+    }
+    .navbar-collapse {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        transition: all 0.3s ease-in-out;
+    }
+    .container-fluid {
+        transition: all 0.3s ease;
+    }
+    .navbar-collapse.collapsing {
+        height: auto;
+        transition: all 0.3s ease-in-out;
+        overflow: hidden;
+    }
+    .navbar-collapse.show {
+        transition: all 0.3s ease-in-out;
+    }
+    @media screen and (max-width: 768px), (max-device-width: 768px) {
+        .navbar-collapse {
+            position: absolute;
+            top: 150px;  /* Match navbar min-height */
+            left: 0;
+            right: 0;
+            background-color: rgb(44, 44, 44);
+            padding: 10px;
+            z-index: 1000;
+        }
+        
+        .navbar-nav {
+            width: 100%;
+            text-align: center;
+        }
     }
 </style>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="https://my.chq.org/static/assets/images/chq-logo.png" alt="CHQ Logo" width="30" height="24">
+        <a class="navbar-brand" href="/">
+            <img src="{% static 'huntersmark.png' %}" alt="CHQ Logo" width="30" height="24" style="filter: brightness(0) saturate(100%) invert(18%) sepia(71%) saturate(2305%) hue-rotate(353deg) brightness(87%) contrast(98%);">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/spider-cam">Spider Cam</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/spider-cam/funny-spider">Funny Spider</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a> 
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
